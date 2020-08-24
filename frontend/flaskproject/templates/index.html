@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roommate Recommender</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+
+    body {
+  background-image: url("https://miro.medium.com/max/2400/1*SYzddg2D3t2EvOJhpVWAqA.jpeg");
+  background-position: center;
+  background-size: cover;
+  }
+  .container {
+    opacity: 0.7;
+background-color: white;
+}
+      .hidden {
+        display: none;
+      }
+
+      .form-heading {
+        padding: 1rem;
+        text-transform: uppercase;
+        font-weight: bolder;
+      }
+
+      th {
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand form-heading" href="#"> Roomate Recommender </a>
+    </nav>
+    <div>
+      <div class="container form-display">
+        <form class="form" id="formInput">
+          <h2 class="form-heading">Please Enter in the details</h2>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Full Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input
+              class="form-control"
+              type="number"
+              name="age"
+              id="age"
+              min="16"
+              placeholder="Age"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="Male"
+                required
+              />
+              <label for="male">Male</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="female" name="gender" value="Female" />
+              <label for="female">Female</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="other" name="gender" value="Other" />
+              <label for="other">Other</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="major">Major</label>
+            <input
+              class="form-control"
+              type="text"
+              name="major"
+              id="Major"
+              placeholder="Enrolled Major"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="program">Program</label>
+            <input
+              class="form-control"
+              type="text"
+              name="program"
+              id="program"
+              placeholder="Enrolled Program"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="preferenceone">#1 Off-Campus Preference</label>
+            <select  class="form-control" id="preferenceone" name="preferenceone">
+              <option>Choose Accomodation 1</option>
+              <option value="none" selected disabled hidden>Select...</option>
+              <option value="University Palms">University Palms</option>
+              <option value="University Park">University Park</option>
+              <option value="University Pointe">University Pointe</option>
+              <option value="Tempe Terrace">Tempe Terrace</option>
+              <option value="12Fifty5 University Apartments">12Fifty5 University Apartments</option>
+              <option value="Agave Apartments">Agave Apartments</option>
+              <option value="Desert Palms">Desert Palms</option>
+              <option value="The Enclave">The Enclave</option>
+              <option value="922 Place">922 Place</option>
+              <option value="Union Tempe">Union Tempe</option>
+              <option value="The Mark">The Mark</option>
+              <option value="University House">University House</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="preferencetwo">#2 Off-Campus Preference</label>
+            <select  class="form-control" id="preferencetwo" name="preferencetwo">
+              <option>Choose Accomodation 2</option>
+              <option value="none" selected disabled hidden>Select...</option>
+              <option value="University Palms">University Palms</option>
+              <option value="University Park">University Park</option>
+              <option value="University Pointe">University Pointe</option>
+              <option value="Tempe Terrace">Tempe Terrace</option>
+              <option value="12Fifty5 University Apartments">12Fifty5 University Apartments</option>
+              <option value="Agave Apartments">Agave Apartments</option>
+              <option value="Desert Palms">Desert Palms</option>
+              <option value="The Enclave">The Enclave</option>
+              <option value="922 Place">922 Place</option>
+              <option value="Union Tempe">Union Tempe</option>
+              <option value="The Mark">The Mark</option>
+              <option value="University House">University House</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="foodpreference">Food Preferences</label>
+            <select  class="form-control" id="foodpreference" name="foodpreference">
+              <option value="false" selected disabled hidden>Select...</option>
+              <option value="Strictly Vegetarian">Strictly Vegetarian</option>
+              <option value="Strictly Eggetarian">Strictly Eggetarian</option>
+              <option value="No Preference">No Preference</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Say something about Yourself</label>
+            <textarea   class="form-control" name="description" rows="10" cols="30" placeholder="Say Something About Yourself!"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ASU Email Address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="minrent">Min Expected Rent</label>
+            <input
+              class="form-control"
+              type="number"
+              name="minrent"
+              id="rent"
+              min="200"
+              max="2000"
+              placeholder="Minimum Rent"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="maxrent">Max Expected Rent</label>
+            <input
+              class="form-control"
+              type="number"
+              name="maxrent"
+              id="rent"
+              min="200"
+              max="2000"
+              placeholder="Maximum Rent"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="knn">Number of Roommate Recommendations</label>
+            <input
+              class="form-control"
+              type="number"
+              name="knn"
+              id="knn"
+              min="1"
+              max="20"
+              placeholder="Minimum 1, Maximum 20"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="reset" class="btn btn-warning">Reset</button>
+
+        </form>
+      </div>
+
+      <div class="table-result hidden">
+        <h2 class="form-heading"> Results </h2>
+        <table class="table table-striped" id="table"></table>
+        <button id="back" class="btn btn-primary"> Go Back </button>
+      </div>
+
+      <div class="spinner-grow hidden">
+          <span class="sr-only">Loading...</span>
+      </div>
+
+    </div>
+
+    <script>
+
+    const res = function(){
+    //HTML will automatically put the form back to its initial state
+    //unless we do
+    console.log("Cleaning form!!")
+    //ev.preventDefault();
+    // programmatically we can reset it
+    document.getElementById('formInput').reset();
+    //if you want to do anything else...
+    }
+      let form = document.querySelector("form");
+
+      form.addEventListener('reset', res);
+
+      form.addEventListener("submit", function (e) {
+        console.log('Submitted')
+        e.preventDefault();
+        var k = 5;
+        let formData = new FormData(form);
+        let object = {};
+        for (let [key, value] of formData.entries()) {
+          if (key === "knn"){
+            k = value;
+          }
+          else{
+            object[key] = value;
+          }
+        }
+        var json = JSON.stringify(object);
+        console.log(k);
+        console.log(json);
+        fetch(
+          "https://recommender-dot-roommaterecommender.uc.r.appspot.com/student/getPreferences/"+k,
+          {
+            //mode: 'no-cors',
+            method: "post",
+
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(object),
+          }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            // console.log(data);
+            if(data){
+                var len = data.length;
+                var txt = `<thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">name</th>
+              <th scope="col">age</th>
+              <th scope="col">
+                gender
+              </th>
+              <th scope="col">
+                major
+              </th>
+              <th scope="col">
+                program
+              </th>
+              <th scope="col">
+                preference 1
+              </th>
+              <th scope="col">
+                preference 2
+              </th>
+              <th scope="col">
+                min rent
+              </th>
+              <th scope="col">
+                max rent
+              </th>
+              <th scope="col">
+                food preference
+              </th>
+              <th scope="col">
+                description
+              </th>
+              <th scope="col">
+                email
+              </th>
+            </tr>
+          </thead>`;
+                if(len > 0){
+                    for(var i=0;i<len;i++){
+                      txt +=  "<tr><td>" + data[i].id + "</td><td>"+data[i].name + "</td><td>"+data[i].age +
+                        "</td><td>"+data[i].gender +
+                        "</td><td>"+data[i].major +
+                        "</td><td>"+data[i].program +
+                        "</td><td>"+data[i].preferenceone +
+                        "</td><td>"+data[i].preferencetwo +
+                        "</td><td>"+data[i].minrent +
+                        "</td><td>"+data[i].maxrent +
+                        "</td><td>"+data[i].foodpreference +
+                        "</td><td>"+data[i].description +
+                        "</td><td>"+data[i].email+"</td></tr>";
+                    }
+                    if(txt != ""){
+                        $(".table-result").removeClass("hidden")
+                        $("#table").append(txt);
+                        $(".form-display").addClass("hidden")
+                    }
+                }
+            }
+            $("body").css({ 'background-color': '#ffffff' });
+            $("body").css('background-image', 'none');
+        })
+          .catch(function (error) {
+            console.error(error);
+          });
+
+
+      });
+      $('#back').on('click', (e) => {
+        e.preventDefault()
+        $(".table-result").addClass("hidden")
+        $("#table").empty()
+        $(".form-display").removeClass("hidden")
+        $("body").css('background-image', 'url(https://miro.medium.com/max/2400/1*SYzddg2D3t2EvOJhpVWAqA.jpeg)');
+      })
+    </script>
+  </body>
+</html>
